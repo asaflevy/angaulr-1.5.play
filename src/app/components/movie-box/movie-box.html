@@ -6,7 +6,6 @@
     <p>{{$mv.movieItem$.review | limitTo:99}}...</p>
     <p>
         <span class="label label-warning availability">Availability ({{$mv.movieItem$.availability}})</span>
-        <a ui-sref="app.MovieDetails({ id: $mv.movieItem$.id})" class="btn btn-primary ">Review</a>
-        <a href="#" class="btn btn-success " role="button ">Book »</a>
+        <a ui-sref="details({ movieId: $mv.movieItem$.id})" class="btn btn-primary ">Review</a>
     </p>
 </div>

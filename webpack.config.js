@@ -84,10 +84,6 @@ module.exports = (function makeWebpackConfig() {
 
 
     config.plugins = [
-        new CommonsChunkPlugin({
-            names: ['vendor'],
-            minChunks: Infinity
-        }),
 
         new HtmlWebpackPlugin({
             template: getPath('./src/index.html'),

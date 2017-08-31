@@ -11,7 +11,7 @@ function routeConfig($stateProvider: StateProvider,) {
     "ngInject";
 
     $stateProvider
-        .state('app.home', {
+        .state('movies', {
             url: '/',
             component: HomeComponent.name,
             resolve: {
@@ -20,16 +20,23 @@ function routeConfig($stateProvider: StateProvider,) {
                 }]
             }
         })
-        .state('app.MovieDetails', {
-            url: '/movie/:id',
-            component: MovieDetailsComponent.name
+        .state('details', {
+            url: '/movie/:movieId',
+            component: MovieDetailsComponent.name,
+            resolve: {
+                movie: ['$transition$', MovieService._name, ($transition$, movieService) => {
+                    return movieService.getMovieList().then((moviesData) => {
+                        let movieId = $transition$.params().movieId;
+                        return moviesData.find(movie => movie.id == movieId);
+                    })
+                }]
+            }
         });
 
 }
 function runConfig(NavService: NavService) {
     const page: NavItem = {
-        state: 'app.home',
-
+        state: 'movies',
         url: '/',
         label: 'Home'
     };

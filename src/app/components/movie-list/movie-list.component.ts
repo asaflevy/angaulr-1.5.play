@@ -4,11 +4,6 @@ class MovieList {
     static $inject = ['$scope', '$state'];
     moviesIn$: Array<Object>;
     constructor(private $scope, private $state) {
-        console.log('movies-list12',this.moviesIn$)
-
-
-
-
     }
 }
 

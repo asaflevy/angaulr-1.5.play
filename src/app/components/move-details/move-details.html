@@ -1,1 +1,8 @@
-123
+<form>
+    <div class="form-group">
+        <label for="movieName">movie name</label>
+        <input type="text" class="form-control" id="movieName" placeholder="" ng-model="$mv.movie$.name">
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="vm.submit(vm.user)">Submit</button>
+</form>
+<h1>{{$mv.movie$.name}}</h1>

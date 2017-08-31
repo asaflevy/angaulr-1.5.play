@@ -1,10 +1,10 @@
 import './home.scss';
 
 export class Home implements ng.IComponentOptions {
-    static $inject = [];
+    static $inject = ['$state'];
     private movieList: Array<any>;
 
-    constructor() {
+    constructor(private $state) {
         console.log('home',this.movieList)
     }
 
